@@ -52,14 +52,14 @@ app.get('/tables', function(req, res) {
 
 const server = http.createServer(handleRequest);
 
-app.listen(PORT, () => console.log(`Server is listening on PORT: ${PORT}`));
-
 let reserve = [];
 let wait = [];
 
 app.post('/reserve', (req, res) => {
     const newRes = req.body;
-    console.log(newRes);
     reserve.push(newRes);
     res.json(newRes);
+    console.log('new res:' + newRes);
 });
+
+app.listen(PORT, () => console.log(`Server is listening on PORT: ${PORT}`));
