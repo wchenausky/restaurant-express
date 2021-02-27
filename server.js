@@ -27,7 +27,9 @@ const displayPage = (res, filename) => {
 const handleRequest = (request, response) => {
     const path = req.url;
     switch (path) {
-        case '/home':
+        case '/':
+            return displayPage(res, `home.html`);
+        case '/':
             return displayPage(res, `home.html`);
         case '/tables':
             return displayPages(res, `tables.html`);
@@ -52,16 +54,6 @@ const server = http.createServer(handleRequest);
 
 app.listen(PORT, () => console.log(`Server is listening on PORT: ${PORT}`));
 
-const handleRequest = (request, response) => {
-            const path = req.url;
-            switch (path) {
-                case '/home':
-                    return displayPage(res, `home.html`);
-                case '/tables':
-                    return displayPages(res, `tables.html`);
-                case '/reserve':
-                    return displayPages(res, `reserve.html`);
-                default:
-                    return displayPages(res, `404.html`);
-            }
-        };
+const table = [];
+const wait = [];
+
