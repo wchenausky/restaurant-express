@@ -54,6 +54,12 @@ const server = http.createServer(handleRequest);
 
 app.listen(PORT, () => console.log(`Server is listening on PORT: ${PORT}`));
 
-const table = [];
-const wait = [];
+let reserve = [];
+let wait = [];
 
+app.post('/reserve', (req, res) => {
+    const newRes = req.body;
+    console.log(newRes);
+    reserve.push(newRes);
+    res.json(newRes);
+});
